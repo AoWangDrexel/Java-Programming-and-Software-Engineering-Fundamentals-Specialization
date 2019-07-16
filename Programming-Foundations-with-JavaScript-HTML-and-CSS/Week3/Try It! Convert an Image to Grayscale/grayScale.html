@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Upload and Display an Image</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js">
+  </script>
+</head>
+
+<body>
+
+  <h1>Upload and Display Image </h1>
+
+  <canvas id="can1">
+  </canvas>
+
+  <canvas id="can2">
+  </canvas>
+
+  <p> Filename: <input type="file" multiple="false" accept="image/*" id="fInput" onchange="upload()"> <br> Greyscale: <input type="button" value="make grey scale" id="btnGrey" onclick="makeGrey()"></p>
+</body>
+
+</html>

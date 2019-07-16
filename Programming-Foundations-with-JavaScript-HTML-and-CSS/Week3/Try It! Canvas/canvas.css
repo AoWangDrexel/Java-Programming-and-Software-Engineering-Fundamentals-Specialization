@@ -1,0 +1,58 @@
+input {
+  font-size: 20px;
+}
+
+#intro {
+  color: #42a5f5;
+  font-family: "Merriweather", serif;
+  font-size: 15px;
+  text-align: center;
+  border: 20px solid #007ac1;
+  padding: 20px;
+  margin: 20px auto;
+  width: 300px;
+}
+
+.backIntro {
+  background-color: #67daff;
+}
+
+#body {
+  color: #ff9800;
+  font-family: "Libre Baskerville", serif;
+  font-size: 15px;
+  text-align: center;
+  border: 20px solid #fb8c00;
+  padding: 20px;
+  width: 300px;
+  margin: 30px auto;
+}
+
+.backBody {
+  background-color: #fdd835;
+}
+
+#secondBody {
+  font-family: "Montserrat", sans-serif;
+}
+
+#randText {
+  text-align: center;
+  font-size: 20px;
+}
+
+canvas {
+  border: 1px solid #7986cb;
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+}
+
+#can1 {
+  background-color: #880e4f;
+}
+#can2 {
+  background-color: #212121;
+}
+

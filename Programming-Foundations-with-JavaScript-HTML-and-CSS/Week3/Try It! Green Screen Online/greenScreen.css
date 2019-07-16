@@ -1,0 +1,19 @@
+#fgcan {
+  border: 1px solid black;
+  width: 500px;
+  height: 300px;
+}
+#bgcan {
+  border: 1px solid black;
+  width: 500px;
+  height: 300px;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: "B612 Mono", monospace;
+}
+p,
+input {
+  font-family: "B612 Mono", monospace;
+}

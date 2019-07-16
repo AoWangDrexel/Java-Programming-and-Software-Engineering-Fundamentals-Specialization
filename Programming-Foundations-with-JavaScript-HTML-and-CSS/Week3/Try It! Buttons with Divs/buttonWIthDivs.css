@@ -1,0 +1,23 @@
+#intro {
+  color: #42a5f5;
+  background-color: #67daff;
+  font-family: "Merriweather", serif;
+  font-size: 15px;
+  text-align: center;
+  border: 20px solid #007ac1;
+  padding: 20px;
+  margin: 20px auto;
+  width: 300px;
+}
+
+#body {
+  color: #ff9800;
+  background-color: #fdd835;
+  font-family: "Libre Baskerville", serif;
+  font-size: 15px;
+  text-align: center;
+  border: 20px solid #fb8c00;
+  padding: 20px;
+  width: 300px;
+  margin: 30px auto;
+}
