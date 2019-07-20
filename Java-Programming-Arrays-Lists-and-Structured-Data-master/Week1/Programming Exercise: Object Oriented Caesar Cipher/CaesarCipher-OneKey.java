@@ -1,61 +1,46 @@
-import edu.duke.*;
+public class CaesarCipher {
+    private String alphabet;
+    private String shiftedAlphabet;
+    private int mainKey;
 
-public class TestCaesarCipher {
-    private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    // returns int array of the number of occurences of each letter
-    public int [] countLetters(String s){
-        s = s.toUpperCase();
-        int [] countOccurence = new int[26];
+    public CaesarCipher(int key){
+        alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        shiftedAlphabet= alphabet.substring(key) + alphabet.substring(0, key);
+        mainKey = key; // could likely use the this.mainKey = mainKey
+    } 
 
-        // loops through each letter in s
-        for(int i = 0; i < s.length(); i++){
-            char letter = s.charAt(i);
-            // determines if char is a letter, if it is find the index of it in the alphabet
-            if(Character.isLetter(letter)){
-                int index = alphabet.indexOf(letter);
-
-                // count each occurence from 0 to 25
-                countOccurence[index]++; 
+    public String encrypt(String input){
+        // creates stringbuilder object to hold input
+        StringBuilder encrypted = new StringBuilder(input);
+        // goes through each letter in encrypted
+        for(int i = 0; i < encrypted.length(); i++){
+            char currChar = encrypted.charAt(i);  
+            int idx;
+            // find index of the current letter in the original alphabet
+            if(Character.isUpperCase(currChar)){
+                idx = alphabet.indexOf(currChar); 
+            }else{
+                idx = alphabet.indexOf(Character.toUpperCase(currChar)); 
+            }
+            // if index is found, use the index from the original alphabet
+            // to get the letter from the encrypted alphabet
+            if(idx != -1){
+                char newChar;
+                if(Character.isUpperCase(currChar)){
+                    newChar = shiftedAlphabet.charAt(idx);     
+                }else{
+                    newChar = Character.toLowerCase(shiftedAlphabet.charAt(idx)); 
+                }
+                // set the letters in the stringbuilder object with the
+                // letters in the encrypted alphabet
+                encrypted.setCharAt(i, newChar);
             }
         }
-        return countOccurence;
+        return encrypted.toString();    
     }
 
-    // returns the index of the largest value in values
-    public int maxIndex(int [] values){
-        int largest = 0;
-        for(int i = 0; i < values.length ; i++){
-            if(values[largest] < values[i]){
-                largest = i;
-            }
-        }
-        return largest;
-    }
-    
-    public void simpleTests(){
-        //FileResource fr = new FileResource();
-        //String text = fr.asString();
-        String text = "Hello there, how are you doing? Nice meeting you, friend.";
-        CaesarCipher cc = new CaesarCipher(7);
-        String cipherText = cc.encrypt(text);
-        System.out.println("Encrypted: " + cipherText);
-        // Olssv aolyl, ovd hyl fvb kvpun? Upjl tllapun fvb, mypluk.
-        System.out.println("Decrypted: " + cc.decrypt(cipherText));
-        // Hello there, how are you doing? Nice meeting you, friend.
-        
-        breakCaesarCipher(cipherText);
-        // Hello there, how are you doing? Nice meeting you, friend.
-    }
-    
-    // prints out the decoded msg by finding the most common letter and 
-    // substracting it from the index of E in the alphabet
-    public void breakCaesarCipher(String input){
-        int maxIndex = maxIndex(countLetters(input));
-        int key = maxIndex - alphabet.indexOf('E');
-        if(key < 0){
-            key += 26;
-        }
-        CaesarCipher cc = new CaesarCipher(key);
-        System.out.println("The decrypted message: " + cc.decrypt(input));
+    public String decrypt(String input){
+        CaesarCipher cc = new CaesarCipher(26 - mainKey);
+        return cc.encrypt(input);   
     }
 }
